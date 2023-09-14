@@ -61,7 +61,16 @@
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
-MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
+
+ZMK_BEHAVIOR(hml, hold_tap, \
+    flavor = "balanced"; \
+    tapping-term-ms = <280>; \
+    quick-tap-ms = <QUICK_TAP_MS>; \
+    global-quick-tap-ms = <150>; \
+    bindings = &kp, &kp; \
+    hold-trigger-key-positions = KEYS_R THUMBS; \
+    hold-trigger-on-release; \
+)
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
