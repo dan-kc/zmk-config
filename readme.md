@@ -30,8 +30,6 @@ compatible with Zephyr 3.0 is available
   [build-scripts](https://github.com/urob/zmk-config/tree/main/scripts#readme)
   for local and Docker-based building (independently of VS Code)
 
-![](img/keymap.png)
-
 ## Timeless homerow mods
 
 [Homerow mods](https://precondition.github.io/home-row-mods) (aka "HRMs") can
