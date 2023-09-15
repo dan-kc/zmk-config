@@ -68,17 +68,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 };
 
 / {
-    behaviors {
-      hm: homerow_mods {
-        compatible = "zmk,behavior-hold-tap";
-        label = "HOMEROW_MODS";
-        #binding-cells = <2>;
-        tapping-term-ms = <150>;
-        quick-tap-ms = <0>;
-        flavor = "tap-preferred";
-        bindings = <&kp>, <&kp>;
-      };
-    };
     combos {
           compatible = "zmk,combos";
           combo_esc {
@@ -95,7 +84,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
      &kp Q         &kp W         &lt NUM F        &kp P         &kp B             &kp J       &kp L       &lt BRAC U         &kp Y         &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &hm LGUI A    &hm LALT R    &hm LCTRL S   &hm LSHFT T   &lt RSYM G        &lt LSYM M   &hm LSHFT N    &hm LCTRL E   &hm LALT I   &hm LGUI O
+     &hml LGUI A    &hml LALT R    &hml LCTRL S   &hml LSHFT T   &lt RSYM G        &lt LSYM M   &hmr LSHFT N    &hmr  LCTRL E   &hmr LALT I   &hmr LGUI O
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Z         &kp X          &kp C            &kp D       &kp V            &kp K         &lt MEDIA H    &kp COMMA     &kp DOT      &kp SLASH
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
