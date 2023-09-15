@@ -21,12 +21,23 @@
 #define MEDIA 6
 #define MOUSE 7
 
-// Hash key on UK kb
-#define HASHISH LA(N4)
+#define HASHISH LA(N4) // Hash key on UK kb
+#define XXX &none
+#define ___ &trans
 
-&lt {
+&sk {  // sticky-key config
+    release-after-ms = <900>;  // release after 0.6s
+    quick-release;             // no double capitalization when rolling keys
+};
+
+&sl {  // sticky-layer config
+    ignore-modifiers;          // allow chording sticky mods & layers
+};
+
+&lt {  // layer-tap config
     flavor = "balanced";
-    tapping-term-ms = <150>;
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
 };
 
 &caps_word {
