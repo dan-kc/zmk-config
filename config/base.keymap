@@ -13,8 +13,8 @@
 
 // Layer aliases
 #define DEF 0 
-#define RSYM 1
-#define NAV 2
+#define NAV 1
+#define RSYM 2
 #define NUM 3
 #define LSYM 4
 #define BRAC 5
@@ -93,13 +93,6 @@ ZMK_BEHAVIOR(dot_spc, macro,
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
 
-// tap: backspace | lshft + tap: delete | rshft + tap: shift-delete
-ZMK_BEHAVIOR(bs_del, mod_morph,
-    bindings = <&kp BSPC>, <&kp DEL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-    keep-mods = <MOD_RSFT>;
-)
-
 / {
     combos {
           compatible = "zmk,combos";
@@ -115,27 +108,13 @@ ZMK_BEHAVIOR(bs_del, mod_morph,
             label = "DEF";
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &kp Q         &kp W         &lt NUM F     &kp P         &kp B             &kp J         &kp L         &lt BRAC U    &kp Y         &kp SQT
+     &kp Q         &kp W         &hml NUM F    &kp P         &kp B             &kp J         &kp L         &hmr BRAC U   &kp Y         &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &lt RSYM G        &lt LSYM M    &hmr LSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O
+     &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G             &kp M         &hmr LSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp Z         &kp X         &kp C         &lt MOUSE D   &kp V             &kp K         &lt MEDIA H   &kp COMMA     &kp DOT       &kp SLASH
+     &kp Z         &kp X         &kp C         &hml MOUSE D  &kp V             &kp K         &hmr MEDIA H  &kp COMMA     &kp DOT       &kp SLASH
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                               &lt_spc NAV SPACE &lt LSHFT ESC &kp RET       &bs_del
-//                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
-            >;
-        };
-        right_symbol_layer {
-            label = "RSYM";
-            bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     XXX           XXX           XXX           XXX           XXX               XXX           &kp PLUS      &kp GRAVE     &kp DQT       XXX 
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     ___           ___           ___           ___           ___               &kp EQUAL     &kp MINUS     &kp COLON     &kp EXCL      &kp PIPE
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     XXX           ___           XXX           XXX           XXX               XXX           &kp UNDER     &kp SEMI      &kp QMARK     &kp BSLH
-// ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                ___          ___               ___           ___
+                                               &lt_spc NAV SPACE &lt RSYM ESC  &lt LSYM RET  &lt LSHFT BKSP
 //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
             >;
         };
@@ -150,6 +129,20 @@ ZMK_BEHAVIOR(bs_del, mod_morph,
      XXX           ___           XXX           XXX           XXX               XXX           &kp HOME      &kp PG_DN     &kp PG_UP     &kp END
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                ___           XXX               &kp TAB       &kp DEL
+//                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+            >;
+        };
+        right_symbol_layer {
+            label = "RSYM";
+            bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+     XXX           XXX           XXX           XXX           XXX               XXX           &kp PLUS      &kp GRAVE     &kp DQT       XXX 
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     ___           ___           ___           ___           ___               &kp EQUAL     &kp MINUS     &kp COLON     &kp EXCL      &kp PIPE
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+     XXX           ___           XXX           XXX           XXX               XXX           &kp UNDER     &kp SEMI      &kp QMARK     &kp BSLH
+// ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                ___          ___               ___           ___
 //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
             >;
         };
