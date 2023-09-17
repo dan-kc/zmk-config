@@ -44,4 +44,3 @@
 #define U_WH_D &mwh SCROLL_DOWN
 #define U_WH_L &mwh SCROLL_LEFT
 #define U_WH_R &mwh SCROLL_RIGHT
-
