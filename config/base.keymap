@@ -65,6 +65,10 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
+MAKE_HRM(hll, &lt, &kp, KEYS_R THUMBS)  // right-hand HRMs
+MAKE_HRM(hlr, &lt, &kp, KEYS_L THUMBS)  // right-hand HRMs
+MAKE_HRM(tr, &kp, &kp, KEYS_L)  // right-hand HRMs
+
 // smart-mouse
 ZMK_BEHAVIOR(smart_mouse, tri_state,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
@@ -96,13 +100,13 @@ ZMK_BEHAVIOR(dot_spc, macro,
             label = "DEF";
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &kp Q         &kp W         &lt NUM F     &kp P         &kp B             &kp J         &kp L         &lt BRAC U    &kp Y         &kp SQT
+     &kp Q         &kp W         &hll NUM F    &kp P         &kp B             &kp J         &kp L         &hlr BRAC U   &kp Y         &kp SQT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G             &kp M         &hmr LSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp Z         &kp X         &kp C         &lt MOUSE D  &kp V              &kp K         &lt MEDIA H   &kp COMMA     &kp DOT       &kp SLASH
+     &kp Z         &kp X         &kp C         &hll MOUSE D  &kp V             &kp K         &hlr MEDIA H  &kp COMMA     &kp DOT       &kp SLASH
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                               &lt_spc NAV SPACE &lt RSYM ESC  &lt LSYM RET  &hmr LSHFT BKSP
+                                               &lt_spc NAV SPACE &lt RSYM ESC  &lt LSYM RET  &tr LSHFT BKSP
 //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
             >;
         };
